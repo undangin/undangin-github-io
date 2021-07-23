@@ -145,8 +145,22 @@
             </div>
         </div>
     </div>
+    <div data-video="jFPufz423Ik"
+         data-autoplay="0"
+         data-loop="1"
+         id="youtube-audio" class="d-none" id="play">
+  </div>  
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>
     <script>
+        $(document).ready(function() {
+            $('body').css('overflow', 'hidden')
+            setTimeout(function() {
+                $('#youtube-icon').click()
+            }, 4000)
+        })
         document.getElementById('map').addEventListener('click', function() {
             window.location = 'https://goo.gl/maps/4zSwZWJKZ577JEE58'
         })
