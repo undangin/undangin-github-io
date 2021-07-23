@@ -31,7 +31,12 @@
             
             color: white;
             font-family: Arial, Helvetica, sans-serif;
-        }        
+            
+        } 
+        
+        .hidden-ov {
+            overflow: hidden;
+        }
         .container {
             /* background-image: url(bg.png); */
             
@@ -40,7 +45,16 @@
             background-position-x: center;
             
                    
-        }      
+        }    
+        
+        .bukaundangan.start {
+            height: 100vh;
+            width: 100%;            
+            background: #0a1334;
+            position: absolute;
+            top: 0;
+            opacity: 0.9;
+        }
                     
 
         @media only screen and (min-device-width: 320px) 
@@ -79,7 +93,7 @@
         
     </style>
 </head>
-<body>
+<body class="hidden-ov">
     <div class="container" style="background-color: #0a1334;">
         <img src="bg-m.png" width="100%">
     </div>
@@ -145,20 +159,28 @@
             </div>
         </div>
     </div>
+
+    <div class="bukaundangan start d-flex justify-content-center align-items-center ">        
+        <button class="btn btn-lg btn-primary buka">Buka Undangan</button>
+    </div>
+
     <div data-video="jFPufz423Ik"
          data-autoplay="0"
          data-loop="1"
          id="youtube-audio" class="d-none" id="play">
-  </div>  
+    </div>  
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>
     <script>
         $(document).ready(function() {
-            setTimeout(function() {
+            $('.buka').click(function() {
                 $('#youtube-icon').click()
-            }, 4000)
+                $('.bukaundangan').slideUp().removeClass('d-flex')
+                $(this).hide()
+                $('body').removeClass('hidden-ov')
+            })
         })
         document.getElementById('map').addEventListener('click', function() {
             window.location = 'https://goo.gl/maps/4zSwZWJKZ577JEE58'
