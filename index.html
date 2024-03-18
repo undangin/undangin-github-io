@@ -264,6 +264,13 @@
         document.getElementById('map').addEventListener('click', function() {
             window.location = 'https://goo.gl/maps/Ks1GPfjURBFYnzpcA'
         })
+
+        // if accessed from desktop, redirect to /index-d.html
+        if (window.innerWidth > 768) {
+            window.location = '/index-d.html'
+        } else {
+            window.location = '/index.html'
+        }
     </script>
 </body>
 </html>
