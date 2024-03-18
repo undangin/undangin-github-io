@@ -234,6 +234,12 @@
                 <h4>&</h4>
                 <h2>Dian</h2>
             </div>
+            <div class="col-8 mx-auto text-center bg-white rounded-lg border border-dark" style="color: black; max-height: 100px !important;">
+                <!-- kepada YTH, bapak/ibu/saudara/i -->
+                <p class="border-bottom border-dark">kepada YTH, Bapak/Ibu/Saudara/i</p>
+                <!-- nama  -->
+                <span id="nama"></span>
+            </div>
             <div class="col-12 text-center mt-5">
                 <button class="btn btn-lg btn-outline buka">Buka Undangan</button>
             </div>
@@ -250,6 +256,11 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>
     <script>
+        // get nama from #nama=nama
+        let nama = window.location.hash.split('=')[1]
+            // url decode
+        nama = decodeURIComponent(nama)
+
         $(document).ready(function() {
             // scroll to top
             $('html, body').animate({scrollTop: 0}, 1000);
@@ -260,6 +271,8 @@
                 $('body').removeClass('hidden-ov')
                 $('html, body').css('overflow-y', 'auto')
             })
+
+            $("#nama").text(nama)
         })
         document.getElementById('map').addEventListener('click', function() {
             window.location = 'https://goo.gl/maps/Ks1GPfjURBFYnzpcA'
@@ -267,7 +280,8 @@
 
         // if accessed from desktop, redirect to /index-d.html
         if (window.innerWidth > 768) {
-            window.location = '/index-d.html'
+            // with hash
+            window.location = '/index-d.html' + window.location.hash
         }
     </script>
 </body>
